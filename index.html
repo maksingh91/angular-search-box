@@ -1,0 +1,31 @@
+<!doctype html>
+<html class="fixed">
+    <head>
+        <!-- Basic -->
+        <meta charset="UTF-8">
+        <title>Search</title>
+  		 
+		  <link rel="stylesheet" href="angular/style.css">
+		  <link rel="stylesheet" href="angular/bootstrap.min.css">
+		
+        <script src="angular/angular.min.js"></script>
+		<script src="angular/controller.js"></script>
+				 
+    </head>
+     <body ng-app="app" ng-controller="SearchCtrl">
+	 <div class="container-fluid">
+	 <div style="margin:15%">
+		 <div class="col-md-12">
+		  <input class="col-md-5" type="text" placeholder="Enter Search criteria" ng-model="searchedTxt" ng-change="displayResult()" ng-keyup="$event.keyCode == 13 && onEnterHit(searchedTxt)" ng-keydown="onKeyDown($event.keyCode)">
+		  </div>
+		  <div class="col-md-12" ng-repeat="value in sortedLst">
+		
+		  <div ng-click="selectedVal(value)" ng-class="{'tagOver':$index==currentCount}" ng-mouseover="onMouseOver($index)" ng-mouseleave="onMouseLeave()" class="col-md-5">{{value.tag}}</div>
+		  
+		  </div> 
+     </div>
+	  </div>
+	  
+               
+    </body>
+</html>
